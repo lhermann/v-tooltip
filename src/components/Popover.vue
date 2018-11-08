@@ -1,14 +1,13 @@
 <template>
-	<div class="v-popover" :class="cssClass">
-		<span
+	<div :class="cssClass" :style="{ display: display }">
+		<div
 			ref="trigger"
-			class="trigger"
-			style="display: inline-block;"
+			:style="{ display: display }"
 			:aria-describedby="popoverId"
 			:tabindex="trigger.indexOf('focus') !== -1 ? 0 : -1"
 		>
 			<slot />
-		</span>
+		</div>
 
 		<div
 			ref="popover"
@@ -139,6 +138,10 @@ export default {
 			type: String,
 			default: null,
 		},
+		display: {
+			type: String,
+			default: 'inline-block'
+		}
 	},
 
 	data () {
